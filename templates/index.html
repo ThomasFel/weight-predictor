@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Predictor</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/source-code.png">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div>
+        <h3><b>Weight</b> Predictor</h3>
+        
+        <form class="form" method="POST" id="form" action="">
+            <div class="row-one">
+                <input type="text" class="text-input" name="height" id="height" autocomplete="off" required>
+                <p class="text">Height (cm)</p>
+            </div>
+            
+            <div class="row-two">            
+                <label class="container">
+                    <input type="radio" name="options" value="1" id="male" required>
+                    <p class="text">Male</p>
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">
+                    <input type="radio" name="options" value="0" id="female">
+                    <p class="text">Female</p>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            
+            <button id="predict">Predict</button>
+        </form>
+
+        {% if result is defined %}
+            <h3><b>Weight:</b><br>{{ result }} kg</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
